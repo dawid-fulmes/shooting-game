@@ -1,2 +1,25 @@
 import "./index.scss";
-console.log("Hello World");
+
+const GAME_HEIGHT = 500;
+const GAME_WIDTH = 1000;
+
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+ctx.canvas.width = GAME_WIDTH;
+ctx.canvas.height = GAME_HEIGHT;
+
+let lastTime = 0;
+
+const gameLoop = timestamp => {
+  let deltaTime = timestamp - lastTime;
+  lastTime = timestamp;
+
+  ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+  ctx.fillStyle = "#000";
+  ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
+  requestAnimationFrame(gameLoop);
+};
+
+requestAnimationFrame(gameLoop);
