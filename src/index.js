@@ -1,5 +1,5 @@
 import "./index.scss";
-import Game from "./game/game";
+import Game from "./game/Game";
 
 const GAME_HEIGHT = 500;
 const GAME_WIDTH = 1000;
