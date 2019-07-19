@@ -8,19 +8,24 @@ class Player extends Human {
 
   move(key) {
     const { maxSpeed } = this;
-    switch (key) {
-      case KEY_UP:
-        this.speed.y = -maxSpeed;
-        break;
-      case KEY_DOWN:
-        this.speed.y = maxSpeed;
-        break;
-      case KEY_LEFT:
-        this.speed.x = -maxSpeed;
-        break;
-      case KEY_RIGHT:
-        this.speed.x = maxSpeed;
-        break;
+    const { x: vx, y: vy } = this.speed;
+    let complexFactor = 1;
+    if (key === KEY_UP || key === KEY_DOWN) {
+      const versor = key === KEY_DOWN ? 1 : -1;
+      if (vx) {
+        complexFactor = 1 / Math.SQRT2;
+        const versor = vx > 0 ? 1 : -1;
+        this.speed.x = maxSpeed * versor * complexFactor;
+      }
+      this.speed.y = maxSpeed * versor * complexFactor;
+    } else if (key === KEY_LEFT || key === KEY_RIGHT) {
+      const versor = key === KEY_RIGHT ? 1 : -1;
+      if (vy) {
+        complexFactor = 1 / Math.SQRT2;
+        const versor = vy > 0 ? 1 : -1;
+        this.speed.y = maxSpeed * versor * complexFactor;
+      }
+      this.speed.x = maxSpeed * versor * complexFactor;
     }
   }
 
