@@ -31,9 +31,18 @@ class Player extends Human {
 
   stop(key) {
     const { x: vx, y: vy } = this.speed;
+    const { maxSpeed } = this;
     if ((key === KEY_UP && vy < 0) || (key === KEY_DOWN && vy > 0)) {
+      if (vx) {
+        const versor = vx > 0 ? 1 : -1;
+        this.speed.x = maxSpeed * versor;
+      }
       this.speed.y = 0;
     } else if ((key === KEY_LEFT && vx < 0) || (key === KEY_RIGHT && vx > 0)) {
+      if (vy) {
+        const versor = vy > 0 ? 1 : -1;
+        this.speed.y = maxSpeed * versor;
+      }
       this.speed.x = 0;
     }
   }
