@@ -15,6 +15,8 @@ class Human {
   update(dt) {
     this.position.x += (this.speed.x * dt) / 1000;
     this.position.y += (this.speed.y * dt) / 1000;
+    const speed = (this.speed.x ** 2 + this.speed.y ** 2) ** 0.5;
+    console.log(`Speed: ${Math.round(speed)} px/s`);
   }
   draw(ctx) {
     //BODY

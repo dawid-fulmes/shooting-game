@@ -30,15 +30,11 @@ class Player extends Human {
   }
 
   stop(key) {
-    switch (key) {
-      case KEY_UP:
-      case KEY_DOWN:
-        this.speed.y = 0;
-        break;
-      case KEY_LEFT:
-      case KEY_RIGHT:
-        this.speed.x = 0;
-        break;
+    const { x: vx, y: vy } = this.speed;
+    if ((key === KEY_UP && vy < 0) || (key === KEY_DOWN && vy > 0)) {
+      this.speed.y = 0;
+    } else if ((key === KEY_LEFT && vx < 0) || (key === KEY_RIGHT && vx > 0)) {
+      this.speed.x = 0;
     }
   }
 }
