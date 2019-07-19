@@ -6,6 +6,15 @@ class Human {
       shouldersWidth: 60,
       headDiameter: 30,
     };
+    this.maxSpeed = 200; //pixels per second
+    this.speed = {
+      x: 0,
+      y: 0,
+    };
+  }
+  update(dt) {
+    this.position.x += (this.speed.x * dt) / 1000;
+    this.position.y += (this.speed.y * dt) / 1000;
   }
   draw(ctx) {
     //BODY

@@ -14,10 +14,10 @@ const game = new Game(GAME_WIDTH, GAME_HEIGHT);
 let lastTime = 0;
 
 const gameLoop = timestamp => {
-  let deltaTime = timestamp - lastTime;
+  let dt = timestamp - lastTime;
   lastTime = timestamp;
 
-  game.update(deltaTime);
+  game.update(dt);
   game.draw(ctx);
 
   requestAnimationFrame(gameLoop);
