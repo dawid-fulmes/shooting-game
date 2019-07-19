@@ -1,7 +1,7 @@
 import { KEY_UP, KEY_DOWN, KEY_RIGHT, KEY_LEFT } from "./constants/controls";
 
 class Input {
-  constructor(game) {
+  constructor(game, canvas) {
     document.addEventListener("keydown", e => {
       switch (e.keyCode) {
         case KEY_UP:
@@ -21,6 +21,14 @@ class Input {
           game.player.stop(e.keyCode);
           break;
       }
+    });
+    canvas.addEventListener("mousemove", e => {
+      const { left, top } = canvas.getBoundingClientRect();
+      const mousePosition = {
+        x: e.clientX - left,
+        y: e.clientY - top,
+      };
+      game.player.lookAt(mousePosition);
     });
   }
 }

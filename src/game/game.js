@@ -2,11 +2,11 @@ import Input from "./Input";
 import Player from "./Player";
 
 class Game {
-  constructor(gameWidth, gameHeight) {
+  constructor(gameWidth, gameHeight, canvas) {
     this.width = gameWidth;
     this.height = gameHeight;
     this.player = new Player({ x: 20, y: 20 }, "blue");
-    new Input(this);
+    new Input(this, canvas);
   }
   update(dt) {
     this.player.update(dt);

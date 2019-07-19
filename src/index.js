@@ -9,7 +9,7 @@ const ctx = canvas.getContext("2d");
 ctx.canvas.width = GAME_WIDTH;
 ctx.canvas.height = GAME_HEIGHT;
 
-const game = new Game(GAME_WIDTH, GAME_HEIGHT);
+const game = new Game(GAME_WIDTH, GAME_HEIGHT, canvas);
 
 let lastTime = 0;
 

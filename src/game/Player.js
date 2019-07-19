@@ -46,5 +46,24 @@ class Player extends Human {
       this.speed.x = 0;
     }
   }
+
+  lookAt(mousePosition) {
+    const playerX = this.position.x + this.shape.shouldersWidth / 2;
+    const playerY = this.position.y + this.shape.headDiameter / 2;
+    const mouseX = mousePosition.x;
+    const mouseY = mousePosition.y;
+    const distanceX = mouseX - playerX;
+    const distanceY = mouseY - playerY;
+    const tan = Math.abs(distanceY) / Math.abs(distanceX);
+    let angle = Math.atan(tan);
+    if (distanceX < 0) {
+      if (distanceY < 0) angle += Math.PI;
+      else angle = Math.PI - angle;
+    } else {
+      if (distanceY < 0) angle = Math.PI * 2 - angle;
+    }
+    const lookingAngle = angle;
+    this.lookingAngle = lookingAngle;
+  }
 }
 export default Player;
