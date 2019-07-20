@@ -1,5 +1,6 @@
 import Human from "./Human";
 import { KEY_UP, KEY_DOWN, KEY_RIGHT, KEY_LEFT } from "./constants/controls";
+import { getAngleToObject } from "./utils/getAngleToObject";
 
 class Player extends Human {
   constructor(game, position, color) {
@@ -48,22 +49,11 @@ class Player extends Human {
   }
 
   lookAt(target) {
-    const playerX = this.position.x + this.shape.shouldersWidth / 2;
-    const playerY = this.position.y + this.shape.headDiameter / 2;
-    const targetX = target.position.x;
-    const targetY = target.position.y;
-    const distanceX = targetX - playerX;
-    const distanceY = targetY - playerY;
-    const tan = Math.abs(distanceY) / Math.abs(distanceX);
-    let angle = Math.atan(tan);
-    if (distanceX < 0) {
-      if (distanceY < 0) angle += Math.PI;
-      else angle = Math.PI - angle;
-    } else {
-      if (distanceY < 0) angle = Math.PI * 2 - angle;
-    }
-    const lookingAngle = angle;
-    this.lookingAngle = lookingAngle;
+    const centrePosition = {
+      x: this.position.x + this.shape.headDiameter / 2,
+      y: this.position.y + this.shape.shouldersWidth / 2,
+    };
+    this.lookingAngle = getAngleToObject(centrePosition, target.position);
   }
 }
 export default Player;
