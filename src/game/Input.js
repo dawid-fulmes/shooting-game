@@ -28,7 +28,7 @@ class Input {
         x: e.clientX - left,
         y: e.clientY - top,
       };
-      game.player.lookAt(mousePosition);
+      game.crosshair.update(mousePosition);
     });
   }
 }

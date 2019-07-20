@@ -1,5 +1,5 @@
 class Human {
-  constructor(position, color) {
+  constructor(game, position, color) {
     this.position = position;
     this.lookingAngle = 0;
     this.color = color;

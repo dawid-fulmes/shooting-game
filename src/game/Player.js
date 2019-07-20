@@ -2,8 +2,8 @@ import Human from "./Human";
 import { KEY_UP, KEY_DOWN, KEY_RIGHT, KEY_LEFT } from "./constants/controls";
 
 class Player extends Human {
-  constructor(position, color) {
-    super(position, color);
+  constructor(game, position, color) {
+    super(game, position, color);
   }
 
   move(key) {
@@ -47,13 +47,13 @@ class Player extends Human {
     }
   }
 
-  lookAt(mousePosition) {
+  lookAt(target) {
     const playerX = this.position.x + this.shape.shouldersWidth / 2;
     const playerY = this.position.y + this.shape.headDiameter / 2;
-    const mouseX = mousePosition.x;
-    const mouseY = mousePosition.y;
-    const distanceX = mouseX - playerX;
-    const distanceY = mouseY - playerY;
+    const targetX = target.position.x;
+    const targetY = target.position.y;
+    const distanceX = targetX - playerX;
+    const distanceY = targetY - playerY;
     const tan = Math.abs(distanceY) / Math.abs(distanceX);
     let angle = Math.atan(tan);
     if (distanceX < 0) {
