@@ -1,15 +1,8 @@
-export class Arms {
-  constructor({ position, lookingAngle, size, color, skinTone }) {
-    this.position = position;
-    this.lookingAngle = lookingAngle;
-    this.size = size;
-    this.color = color;
-    this.skinTone = skinTone;
-  }
+import BodyPart from "./BodyPart";
 
-  update({ position, lookingAngle }) {
-    this.position = position;
-    this.lookingAngle = lookingAngle;
+export class Arms extends BodyPart {
+  constructor({ position, lookingAngle, size, color, skinTone }) {
+    super({ position, lookingAngle, size, color, skinTone });
   }
 
   draw(ctx) {
