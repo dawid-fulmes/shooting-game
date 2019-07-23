@@ -47,13 +47,5 @@ class Player extends Human {
       this.speed.x = 0;
     }
   }
-
-  lookAt(target) {
-    const centrePosition = {
-      x: this.position.x,
-      y: this.position.y,
-    };
-    this.lookingAngle = getAngleToObject(centrePosition, target.position);
-  }
 }
 export default Player;
