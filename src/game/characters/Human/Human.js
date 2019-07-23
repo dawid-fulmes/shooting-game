@@ -1,4 +1,5 @@
 import { Torso, Arms, Head } from "./bodyParts";
+import Pistol from "../weapons/Pistol/Pistol";
 
 class Human {
   constructor(game, position, color) {
@@ -11,6 +12,7 @@ class Human {
       arms: new Arms(this.size, this.color, "#FFDBAC"),
       head: new Head(this.size, "#FFDBAC"),
     };
+    this.weapon = new Pistol({ x: this.size / 2 - this.size / 16, y: 0 });
     this.maxSpeed = 200; //pixels per second
     this.speed = {
       x: 0,
@@ -28,6 +30,7 @@ class Human {
     ctx.save();
     ctx.rotate(Math.PI / 4);
     this.bodyParts.arms.draw(ctx);
+    this.weapon.draw(ctx);
     this.bodyParts.torso.draw(ctx);
     this.bodyParts.head.draw(ctx);
     ctx.restore();
