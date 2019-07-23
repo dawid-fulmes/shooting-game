@@ -7,7 +7,7 @@ class Game {
     this.width = gameWidth;
     this.height = gameHeight;
     this.crosshair = new Crosshair("red", 30);
-    this.player = new Player(this, { x: 20, y: 20 }, "blue");
+    this.player = new Player(this, { x: 200, y: 200 }, "blue");
     new Input(this, canvas);
   }
   update(dt) {

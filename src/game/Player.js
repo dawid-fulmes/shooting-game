@@ -50,8 +50,8 @@ class Player extends Human {
 
   lookAt(target) {
     const centrePosition = {
-      x: this.position.x + this.shape.headDiameter / 2,
-      y: this.position.y + this.shape.shouldersWidth / 2,
+      x: this.position.x,
+      y: this.position.y,
     };
     this.lookingAngle = getAngleToObject(centrePosition, target.position);
   }
