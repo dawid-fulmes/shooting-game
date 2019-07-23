@@ -1,4 +1,4 @@
-import Human from "./Human";
+import Human from "./characters/Human/Human";
 import { KEY_UP, KEY_DOWN, KEY_RIGHT, KEY_LEFT } from "./constants/controls";
 import { getAngleToObject } from "./utils/getAngleToObject";
 

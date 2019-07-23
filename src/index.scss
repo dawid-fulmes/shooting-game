@@ -8,6 +8,7 @@ body {
   color: #fff;
   text-align: center;
   font-size: 30px;
+  user-select: none;
 
   #gameCanvas {
     border: 1px solid #000;
